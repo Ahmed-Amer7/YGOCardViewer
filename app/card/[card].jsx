@@ -15,7 +15,6 @@ const card = () => {
 
   return (
     <SafeAreaView>
-        <Text>{name}</Text>
         <Image source={{ uri: card_images[0].image_url }} resizeMode='contain' className="h-[500px]" />
     </SafeAreaView>
   )
