@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import { Link } from 'expo-router'
 import { Picker } from '@react-native-picker/picker'
 import Card from '../components/Card'
+import Footer from '../components/Footer'
 
 const search = () => {
 
@@ -21,11 +22,11 @@ const search = () => {
   }, [input])
 
   return (
-    <SafeAreaView className="h-full bg-[#7d3e12]">
+    <SafeAreaView className="h-auto bg-[#7d3e12]">
       <View>
-        <Header />
+        <Header className="bg-[#7d3e12]" />
         <ScrollView>
-          <View className="h-full bg-white p-4">
+          <View className=" bg-white p-4">
             <Text className="text-5xl pt-4">Card Database</Text>
             <View className="flex flex-row mt-4">
               <Link className='text-lg text-[#7d3e12]' href={"/search"}>Home</Link>
@@ -38,7 +39,7 @@ const search = () => {
               <Text className=" text-white rounded-sm p-3 bg-[#7d3e12]">01</Text>
               <View className="flex-1 border border-[#ced4da] h-10 rounded-md focus:border-[2px] focus:border-[#c7e2fd]">
                 <Picker selectedValue={limit} onValueChange={(itemValue) => setLimit(itemValue)} style={{color: 'gray', bottom: 5}}>
-                  <Picker.Item label='Limit 30' value={31} />
+                  <Picker.Item label='Limit 30' value={10} />
                   <Picker.Item label='Limit 50' value={51} />
                   <Picker.Item label='Limit 100' value={101} />
                 </Picker>
@@ -49,21 +50,14 @@ const search = () => {
             <View className="h-auto bg-[#f8f9fb] rounded-lg border border-[#dddfde] pb-5">
               <Card limit={limit} name={cardName} />
             </View>
-            <View>
-              <View className="mb-20 mt-8">
-                <Text>Hello World</Text>
-                <Text>Hello World</Text>
-                <Text>Hello World</Text>
-                <Text>Hello World</Text>
-              </View>
+            <View className="pb-28 mt-6 h-full w-[100vw] right-4 ml-[calc(50%_-_50vw)]">
+              <Footer />  
             </View>
-          </View>
+          </View>    
         </ScrollView>
       </View>
     </SafeAreaView>
   )
 }
-
-// #f8f9fb
 
 export default search
